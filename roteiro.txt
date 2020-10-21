@@ -1,0 +1,27 @@
+#1 Loja de Laço da Cria Website in Laravel 6.0|7.0|8.0 | Install Laravel 6.0 | Install Authentication
+
+Bemvindo a loja de laço da cris. nós trabalharemos no Laravel com Multi Auth, Guards,
+Vue scaffolding, Migrations, Seeding etc. etc.
+
+Laravel é um dos mais populares PHP framework para desenvolver websites. E recentemente, a versão Laravel 6
+foi atualizada e nós usaremos para nosso website.
+
+nós instalaremos Laravel 6 e então instalaremos Authenticação para criar default login/register.
+
+1) Install Laravel 6.0 :-
+Follow our another tutorial to install Laravel 6.0 :
+https://youtu.be/tsDWyuwpOB4 (for Windows)
+composer create-project --prefer-dist laravel/laravel loja_de_laco "6.*"
+https://youtu.be/VxqNkYfiSik (for Mac)
+
+2) Install Authentication / Scaffolding :-
+After installing the Laravel 6.0 successfully, now we require to install Authentication / Scaffolding that helps to
+make default login/register panel in our new Laravel website.
+
+Scaffolding refere-se para rápido esqueleto do website que cobre a Authenticação do website.
+
+Follow below video to add Authentication :-
+https://youtu.be/GWl5-VLCiJA
+composer require laravel/ui --dev
+php artisan ui vue --auth
+npm i && npm run dev
