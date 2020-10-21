@@ -25,3 +25,56 @@ https://youtu.be/GWl5-VLCiJA
 composer require laravel/ui --dev
 php artisan ui vue --auth
 npm i && npm run dev
+
+#2 Make Advance E-com Website in Laravel 6.0 | Make Admin Panel in Laravel 6 | Merge AdminLTE 3
+
+In the 2nd Part of Advance E-com series, we will download one of the best free responsive admin template i.e. AdminLTE 3
+and merge it into our Laravel 6 E-com website.
+
+1) Download Template :-
+Open website https://adminlte.io to download the latest version of AdminLTE 3.
+
+2) Merge Template :-
+Now we will start merging AdminLTE template files into our Laravel website.
+
+We will copy CSS, JS, Images and Plugins from AdminLTE template to our Laravel file structure.
+
+2.1) Copy CSS Files :-
+We will create admin_css folder under /public/css and copy all CSS files from dist/css/ folder from AdminLTE into it.
+
+2.2) Copy JS Files :-
+We will create admin_js folder under /public/js and copy all JS files from dist/js/ AdminLTE into it.
+
+2.3) Copy Images :-
+We will create admin_images folder under /public/images and copy all Images files from dist/img/ AdminLTE into it.
+
+2.4) Plugins Folder :-
+We will copy plugins folder from AdminLTE folder and paste into public folder in our Laravel website.
+
+3) Create admin_layout Folder and admin_layout.blade.php File :-
+We will create admin_layout Folder under resources/views/layouts/ path in which we will create admin_layout.blade.php file.
+
+We will copy content from index.html file from AdminLTE folder and paste it into this admin_layout.blade.php file.
+Before making further changes in this file, we will also create below files under admin_layout Folder :-
+
+admin_header.blade.php file
+admin_footer.blade.php file
+admin_sidebar.blade.php file
+
+We will add content into above three files and will also update admin_layout.blade.php file as shown in video.
+
+In admin_header.blade.php file, add Navbar related code and we will include admin_header.blade.php file in admin_layout.blade.php
+file like below :-
+@include('layouts.admin_layout.admin_header')
+
+In admin_footer.blade.php file, add footer related code and we will include admin_footer.blade.php file in admin_layout.blade.php
+file like below :-.
+@include('layouts.admin_layout.admin_footer')
+
+In admin_sidebar.blade.php file, add sidebar related code and and we will include admin_sidebar.blade.php file in
+admin_layout.blade.php file like below :-
+@include('layouts.admin_layout.admin_sidebar')
+
+For middle content, add admin_dashboard.blade.php file under admin folder that we will create under /resources/views/ path and
+we will include in admin_layout.blade.php file like below :-
+@yield('content')
