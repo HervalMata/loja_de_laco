@@ -180,3 +180,37 @@ Add Auth:guard check in Admin Middleware to protect the admin routes. This check
 Add admin middleware group and move admin dashboard route under it to protect it from unauthorised access.
 
 Now no one can access admin dashboard without login into the admin panel.  We have used Guards to protect the admin routes including dashboard route.
+
+#6 Make Advance E-com Website in Laravel 6.0 | Database Seeding | Writing Seeders | Running Seeders
+
+In Part-6 of Advance E-com series, though we will continue working on Multi-Authentication and will use guards for admin login. But in this video, we will work on Seeding for our Laravel 6 E-com website. Seeding helps us to insert data into table from file and will also help us for future projects to automatically create table with migration and data with seeding.
+
+We will create Seeding for admins table to automatically insert admin data from file and it will help us in our next project as well.
+
+1) Writing Seeder / Create AdminsTableSeeder file :-
+First of all, we will generate seeder and create AdminsTableSeeder file where we will add record for admins table.
+
+Run below artisan command to generate Seeder and create AdminsTableSeeder file :-
+php artisan make:seeder AdminsTableSeeder
+
+Above command will create AdminsTableSeeder.php file at \database\seeds\
+
+Now open AdminsTableSeeder file and add record for admin.
+
+We will generate hash password for admin by using Hash::make function as shown in video.
+
+2) Update Admin model :-
+Now we need to update Admin model to add all admins table columns in fillable array as shown in video.
+
+3) Update DatabaseSeeder.php file :-
+Now update DatabaseSeeder.php file located at database/seeds/ to add AdminsTableSeeder class as shown in video.
+
+4) Running Seeders / Run below command :-
+Once you have written your seeder, you may need to regenerate Composer's autoloader using the dump-autoload command:
+composer dump-autoload
+
+5) Run below command :-
+Now run last command that will finally insert admin record into admins table that we can use for admin login.
+php artisan db:seed
+
+You can see in video; we able to generate record for admins table with hash password.

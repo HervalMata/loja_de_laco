@@ -13,6 +13,7 @@ class AdminController extends Controller
 
     public function login()
     {
+//        echo $password = Hash::make(123456); die;
         return view('admin.login');
     }
 }
