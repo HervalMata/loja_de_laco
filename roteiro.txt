@@ -310,3 +310,48 @@ Now we will update settings page and will show email in update password form tha
 
 7) Update admin_header.blade.php file :-
 Now we will also update admin header to show settings link along with admin name and type who logged in.
+
+#10 Make Advance E-com Website in Laravel 6 | Upgrade Laravel 6 to 7 | Upgrade E-com to Laravel 7.0
+
+In Part-10 of Advance E-com series, we are going to upgrade our Laravel 6 E-commerce project to Laravel 7 by taking few simple steps :-
+
+1) Update composer.json file :-
+First of all, update composer.json file to upgrade PHP version from 7.2 to 7.2.5 and laravel/framework to 7.0.* from 6.0 along with many other dependencies as shown in video.
+
+"require": {
+        "php": "^7.2.5",
+        "fideloper/proxy": "^4.2",
+        "fruitcake/laravel-cors": "^1.0",
+        "guzzlehttp/guzzle": "^6.3",
+        "laravel/framework": "^7.0",
+        "laravel/tinker": "^2.0"
+    },
+    "require-dev": {
+        "facade/ignition": "^2.0",
+        "fzaninotto/faker": "^1.9.1",
+        "mockery/mockery": "^1.3.1",
+        "nunomaduro/collision": "^4.1",
+        "phpunit/phpunit": "^8.5"
+    },
+
+2) Update Handler.php file :-
+Now we will update Handler.php file located at /app/Exceptions/ folder and will replace Exception instance with Throwable everywhere in file as shown in video.
+
+3) Upgrade Laravel/ui Package :-
+Now run below composer command to upgrade Laravel/ui Package for Auth :-
+composer require laravel/ui "^2.0"
+
+4) Run "composer update" command :-
+Now run "composer update" command to finally upgrade our Laravel 6 E-com project to Laravel 7
+
+5) Verify Laravel version :-
+Now you can verify the laravel version by running below artisan command :-
+php artisan --version
+
+In my case, it's coming like Laravel Framework 7.0.3, check yours.
+
+6) Run Laravel Project :-
+Now run your Laravel E-com project by running below artisan command :-
+php artisan serve
+
+Check everything if working fine after updating your project to Laravel 7.0
