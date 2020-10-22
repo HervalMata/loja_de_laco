@@ -18,12 +18,24 @@ class AdminController extends Controller
     {
         if ($request->isMethod('post')) {
             $data = $request->all();
+            $rules = [
+                'email' => 'required|email|max:255',
+                'password' => 'required'
+            ];
+            $customMessages = [
+                'email.required' => 'Email é requerido',
+                'email.email' => 'Email válido é requerido',
+                'password.required' => 'Senha é requerida',
+            ];
+            $this->validate($request, $rules, $customMessages);
             if (Auth::guard('admin')->attempt(['email' => $data['email'], 'password' => $data['password']])) {
                 return redirect('admin/dashboard');
             } else {
                 Session::flash('error_message', 'Email ou Senhas inválidos');
                 return redirect()->back();
             }
+
+
         }
         return view('admin.login');
     }

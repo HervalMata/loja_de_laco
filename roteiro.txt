@@ -250,3 +250,30 @@ We can get the "error message alert bootstrap" script from below website :-
 https://getbootstrap.com/docs/4.0/com...
 
 Now check in video, we able to login in admin panel with Guard and logout as well. If username or password is incorrect then we are displaying error message in admin login page.
+
+#8 Make Advance E-com Website in Laravel 6.0 | Laravel Validation | Writing Validation Logic
+
+In Part-8 of Advance E-com series, we will add Laravel validations for admin login form.
+
+We will follow below Laravel link for integrating Laravel validations for admin login :-
+https://laravel.com/docs/6.x/validation
+
+1) Update login function :-
+Update login function located at AdminController and write validator code for email and password as shown in video.
+
+Take help from https://laravel.com/docs/6.x/validati... for writing validation logic.
+
+2) Update admin_login.blade.php file :-
+Now update admin_login.blade.php file to display the error if validation fails for email and password. You can check this at Laravel website under "Displaying The Validation Errors" section.
+https://laravel.com/docs/6.x/validati...
+
+3) Update Header Statement :-
+Now add below statement at the top of AdminController to include Validator class for Laravel validation :-
+use Validator;
+
+Check now validation is working fine in admin login form. Default error message will come for email and password but we can write custom error message for email and password.
+
+4) Update login function :-
+For custom error messages, we will write validation logic in one array and custom error messages in another and then validate them as shown in video.
+
+We will learn more about Laravel validations in future videos when we work on other forms.
