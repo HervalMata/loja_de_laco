@@ -277,3 +277,36 @@ Check now validation is working fine in admin login form. Default error message 
 For custom error messages, we will write validation logic in one array and custom error messages in another and then validate them as shown in video.
 
 We will learn more about Laravel validations in future videos when we work on other forms.
+
+#9 Make Advance E-com Website in Laravel 6 | Change Password (I) | Settings Page
+
+In Part-9 of Advance E-com series, we will create settings page for our admin panel. In settings page, we will create update password form from where admin can update password of admin panel.
+
+1) Create Route :-
+First of all, create GET route for settings page in web.php file like below :-
+Route::get('settings', 'AdminController@settings');
+
+We will also keep this route in admin middleware Route::group to protect it from unauthorized access.
+
+2) Create settings function :-
+Now we will create settings function in AdminController that we will return to setting blade file.
+
+3) Create admin_settings.blade.php :-
+Now we will create admin_settings.blade.php file similar to admin_dashboard.blade.php file that we have created earlier on.
+
+Now copy the form design content from AdminLTE template from path /pages/forms/general.html
+
+We will add email, current password, new password and confirm password fields.
+
+4) Update settings function :-
+Now we will update settings function in AdminController to get the current admin details like email and password from Auth guard admin and return to settings page.
+
+5) Include Admin Model :-
+Now we will include Admin model at top of the AdminController like below :-
+use App\Admin;
+
+6) Update admin_settings.blade.php :-
+Now we will update settings page and will show email in update password form that we have got from settings function at AdminController from admin guard.
+
+7) Update admin_header.blade.php file :-
+Now we will also update admin header to show settings link along with admin name and type who logged in.

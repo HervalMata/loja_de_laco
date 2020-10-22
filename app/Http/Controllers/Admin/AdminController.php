@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Session;
@@ -44,5 +45,11 @@ class AdminController extends Controller
     {
         Auth::guard('admin')->logout();
         return redirect('/admin');
+    }
+
+    public function settings()
+    {
+        $adminDetails = Admin::where('email', Auth::guard('admin')->user()->email)->first();
+        return view('admin.settings')->with(compact('adminDetails'));
     }
 }
