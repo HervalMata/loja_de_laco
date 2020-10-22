@@ -116,3 +116,20 @@ We will create dashboard function in AdminController and will return to admin_da
 You can see the view of dashboard page by opening below link :-
 http://127.0.0.1:8000/admin/dashboard
 
+#4 Make Advance E-com Website in Laravel 6.0 | Admin Panel | Merge AdminLTE 3 | Admin Login Design
+
+In Part-4, we will create admin login page. We will copy design/content of admin login from AdminLTE template and merge into our Laravel 6 E-com Admin Panel.
+
+1) Create Route :-
+First of all, create GET/POST route for admin login in Admin route group like below :-
+Route::match(['get','post'],'/','AdminController@login');
+
+2) Create Function :-
+Now create login function in AdminController that will return to admin_login.blade.php file that we will create in next step.
+
+3) Create admin_login.blade.php file :-
+Now we will create admin_login.blade.php file in /resources/views/admin/ folder in which we will add content from login.html page from AdminLTE/pages/examples/ folder. We will not add admin design to it as admin design layout with header, footer and sidebar is for the internal pages of admin.
+
+We will also correct paths in admin_login.blade.php file.
+
+You can see in video; our admin login page is ready.
