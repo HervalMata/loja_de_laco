@@ -78,3 +78,41 @@ admin_layout.blade.php file like below :-
 For middle content, add admin_dashboard.blade.php file under admin folder that we will create under /resources/views/ path and
 we will include in admin_layout.blade.php file like below :-
 @yield('content')
+
+
+#3 Make Advance E-com Website in Laravel 6.0 | Admin Panel | Merge AdminLTE 3 | Layout / Dashboard
+
+In Part 3,  we will update layout files; header, footer and sidebar to correct css/js/images and plugins paths. We will also create route, function for admin dashboard page and set its design as well.
+
+1) Update admin_layout.blade.php file :-
+First of all, we will update admin_layout.blade.php file to add Laravel asset/url to css/js/images and plugins paths.
+
+2) Update admin_header.blade.php file :-
+Now we will update admin_header.blade.php file to add Laravel asset to images paths.
+
+3) Update admin_sidebar.blade.php file :-
+Now we will update admin_sidebar.blade.php file to add Laravel asset to images paths.
+
+4) Update admin_dashboard.blade.php file :-
+Now we will update admin_dashboard.blade.php file to add Laravel asset to images paths.
+
+5) Create AdminController.php file :-
+Now create Admin folder under /app/Http/Controllers/ and then create AdminController.php file under Admin folder by running below artisan command :-
+php artisan make:controller Admin/AdminController
+
+We will keep all Admin Controllers separate from Front Controllers that will help us to do clear coding.
+
+6) Create Route :-
+We will create separate group in web.php file for admin routes so that we can keep them separately with namespace Admin and prefix admin.
+
+Learn more about Routing/Controllers including namespaces/route groups in Laravel 6 Basics playlist :-
+https://www.youtube.com/playlist?list...
+
+We have added dashboard route without any authentication for now but in upcoming videos, we will add Guard Auth for admin routes.
+
+7) Create function :-
+We will create dashboard function in AdminController and will return to admin_dashboard.blade.php file.
+
+You can see the view of dashboard page by opening below link :-
+http://127.0.0.1:8000/admin/dashboard
+
