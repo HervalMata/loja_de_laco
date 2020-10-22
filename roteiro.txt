@@ -214,3 +214,39 @@ Now run last command that will finally insert admin record into admins table tha
 php artisan db:seed
 
 You can see in video; we able to generate record for admins table with hash password.
+
+#7 Make Advance E-com Website in Laravel 6.0 | Multi Authentication | Admin Panel Login with Guard
+
+In Part-7, we will continue working on Multi Authentication for our Advance E-com website in Laravel 6.
+
+We will work on admin login and logout functionality with Guards. We will register admin guard every time when admin logged in and destroy it every time when admin logged out from the admin panel.
+
+1) Update admin_login.blade.php file :-
+First of all, we will update admin_login.blade.php file to update Login form. We will set its action, CSRF token, username (email) and password.
+
+2) Update login function :-
+Now we will update login function at AdminController. We will add the condition for posted data and use guard for admin login as shown in video.
+
+You can try login with username admin@admin.com and password 123456 that we have set in last video with Seeding.
+
+Once logged in, we will redirect the user to Dashboard page and if the username or password is incorrect then we can redirect back the user and flash error message in admin login page.
+
+3) Update admin_header.blade.php file :-
+Remove all unwanted code and add "Logout" link for the user at top right side of the header as shown in video.
+
+4) Create Route :-
+Now we will create GET route for Admin Logout in web.php file like below :-
+
+// Admin Logout
+Route::get('logout','AdminController@logout');
+
+5) Create logout function :-
+Now we will create logout function in AdminController in which we will unset admin guard as shown in video.
+
+6) Update admin_login.blade.php file :-
+Update admin_login.blade.php file to show the error message if admin user or password is incorrect.
+
+We can get the "error message alert bootstrap" script from below website :-
+https://getbootstrap.com/docs/4.0/com...
+
+Now check in video, we able to login in admin panel with Guard and logout as well. If username or password is incorrect then we are displaying error message in admin login page.
