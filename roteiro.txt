@@ -355,3 +355,35 @@ Now run your Laravel E-com project by running below artisan command :-
 php artisan serve
 
 Check everything if working fine after updating your project to Laravel 7.0
+
+#11 Make E-com Website in Laravel 6 / 7 | Change Password (II) | Check Current Password with Ajax
+
+In part 11 of Advance E-com series, we will check if current password filled by admin in update password form is correct or not. We will check in Ajax and display message with current password field in Update Password form that we have created in Settings page of admin.
+
+1) Update admin_settings.blade.php file :-
+First of all, we will update "Update Password" form by adding action, name, id to form.
+
+2) Create admin_script.js file :-
+First of all, we will create admin_script.js file at /public/js/admin_js/ folder. Then we will add Jquery/Ajax in this file to check if current password entered by the admin is correct or not.
+
+3) Update admin_layout.blade.php file :-
+Now we will include admin_script.js file in admin_layout.blade.php file.
+
+4) Create Route :-
+Now we will create POST route in web.php file for checking current password that we have passed via Ajax URL :-
+Route::POST('check-current-pwd','AdminController@chkCurrentPassword');
+
+5) Create chkCurrentPassword function :-
+Now we will create chkCurrentPassword function at AdminController in which we will check if current password entered by admin is correct or not. We will return true or false to Ajax to display the message at update password form.
+
+6) Update admin_settings.blade.php file :-
+Now in admin_settings file, in Password form, below Current password field, we will add one span tag with id to display message that we have returned from Ajax.
+
+Now we will update our Jquery function. We will check true or false value in Ajax return to display the success or error message in chkPwd ID that we have just created.
+
+7) Update VerifyCsrfToken.php
+We will add '/admin/check-current-pwd' route in VerifyCsrfToken.php to exclude it from CSRF verification.
+
+Now see in video, true comes if we give correct password 123456 and false comes if we give incorrect password. And we have added condition in Ajax to display error or success message based on it.
+
+See now in video, message comes based on our current password. So if we give correct password then it shows Current Password is Correct, otherwise Incorrect.

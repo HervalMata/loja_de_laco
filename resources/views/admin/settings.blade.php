@@ -33,12 +33,13 @@
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form role="form">
+                            <form role="form" method="post" action="{{url('/admin/update-pwd')}}"
+                                  name="updatePasswordForm" id="updatePasswordForm">
+                                @csrf
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="name">Nome</label>
                                         <input type="text" class="form-control" id="name" name="name" placeholder="Nome"
-                                               readonly
                                                value="{{$adminDetails->name}}">
                                     </div>
                                     <div class="form-group">
@@ -57,6 +58,7 @@
                                         <label for="passwordCurrent">Senha Atual</label>
                                         <input type="password" class="form-control" id="passwordCurrent"
                                                name="passwordCurrent" placeholder="Senha Atual">
+                                        <span id="chkCurrentPwd"></span>
                                     </div>
                                     <div class="form-group">
                                         <label for="passwordNew">Nova Senha</label>
