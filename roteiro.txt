@@ -387,3 +387,22 @@ We will add '/admin/check-current-pwd' route in VerifyCsrfToken.php to exclude i
 Now see in video, true comes if we give correct password 123456 and false comes if we give incorrect password. And we have added condition in Ajax to display error or success message based on it.
 
 See now in video, message comes based on our current password. So if we give correct password then it shows Current Password is Correct, otherwise Incorrect.
+
+#12 Make E-com Website in Laravel 7 | Change Password (III) | Check / Update Current AdminPassword
+
+In Part-12 of Advance E-com Series, we will continue working on update admin password functionality and in this video we are going to finally update the admin password. Also we will perform some laravel validation checks in update password form.
+
+1) Update admin_header.blade.php file :-
+First of all, update admin header with Admin name who logged in and Settings page link.
+
+2) Create Route :-
+Now we will create POST route in web.php file for updating current admin password :-
+Route::POST('update-current-pwd','AdminController@updateCurrentPassword');
+
+3) Create updateCurrentPassword function :-
+Now we will create updateCurrentPassword function to update the current password and set the new password entered by the user but first we will check if current password entered is correct or not. If not correct we will send back the admin to update password form with error message. And if correct then we will compare new password with confirm password, if correct then we will update new password and return success message otherwise will return error message.
+
+4) Update admin_settings.blade.php file :-
+Update admin settings page with success and error message div's.
+
+Check in video : Admin can able to update current admin panel password.

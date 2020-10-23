@@ -33,15 +33,31 @@
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form role="form" method="post" action="{{url('/admin/update-pwd')}}"
+                            <form role="form" method="post" action="{{url('/admin/update-currente-pwd')}}"
                                   name="updatePasswordForm" id="updatePasswordForm">
                                 @csrf
+                                @if(Session::has('error_message'))
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        {{Session::get('error_message')}}
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                @endif
+                                @if(Session::has('success_message'))
+                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                        {{Session::get('success_message')}}
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                @endif
                                 <div class="card-body">
-                                    <div class="form-group">
+                                    {{--<div class="form-group">
                                         <label for="name">Nome</label>
                                         <input type="text" class="form-control" id="name" name="name" placeholder="Nome"
                                                value="{{$adminDetails->name}}">
-                                    </div>
+                                    </div>--}}
                                     <div class="form-group">
                                         <label for="email">Email</label>
                                         <input type="email" class="form-control" id="email" name="email"
@@ -57,18 +73,18 @@
                                     <div class="form-group">
                                         <label for="passwordCurrent">Senha Atual</label>
                                         <input type="password" class="form-control" id="passwordCurrent"
-                                               name="passwordCurrent" placeholder="Senha Atual">
+                                               name="passwordCurrent" placeholder="Senha Atual" required>
                                         <span id="chkCurrentPwd"></span>
                                     </div>
                                     <div class="form-group">
                                         <label for="passwordNew">Nova Senha</label>
                                         <input type="password" class="form-control" id="passwordNew" name="passwordNew"
-                                               placeholder="Nova Senha">
+                                               placeholder="Nova Senha" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="passwordConfirm">Confirmar Senha</label>
                                         <input type="password" class="form-control" id="passwordConfirm"
-                                               name="passwordConfirm" placeholder="Confirmar Senha">
+                                               name="passwordConfirm" placeholder="Confirmar Senha" required>
                                     </div>
                                 </div>
                                 <!-- /.card-body -->
