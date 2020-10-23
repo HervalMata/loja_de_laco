@@ -57,7 +57,7 @@ class AdminController extends Controller
     public function chkCurrentPassword(Request $request)
     {
         $data = $request->all();
-        if (Hash::check($data['passwordCurrent'], Auth::guard('admin')->user()->password)) {
+        if (Hash::check($data['current_pwd'], Auth::guard('admin')->user()->password)) {
             echo "true";
         } else {
             echo "false";
@@ -68,9 +68,9 @@ class AdminController extends Controller
     {
         if ($request->isMethod('post')) {
             $data = $request->all();
-            if (Hash::check($data['passwordCurrent'], Auth::guard('admin')->user()->password)) {
-                if ($data['passwordNew'] == $data['passwordConfirm']) {
-                    Admin::where('id', Auth::guard('admin')->user()->id)->update(['password' => bcrypt($data['passwordNew'])]);
+            if (Hash::check($data['current_pwd'], Auth::guard('admin')->user()->password)) {
+                if ($data['new_pwd'] == $data['confirm_pwd']) {
+                    Admin::where('id', Auth::guard('admin')->user()->id)->update(['password' => bcrypt($data['new_pwd'])]);
                     Session::flash('success_message', 'A senha foi atualizada com sucesso.');
                 } else {
                     Session::flash('error_message', 'A nova senha e sua confirmação não são iguais');
@@ -82,4 +82,28 @@ class AdminController extends Controller
             return redirect()->back();
         }
     }
+
+    public function updateAdminDetails(Request $request)
+    {
+        if ($request->isMethod('post')) {
+            $data = $request->all();
+            $rules = [
+                'name' => 'required|regex:/^[pL\s\-]+$/u',
+                'admin_mobile' => 'required|numeric'
+            ];
+            $customMessages = [
+                'name.required' => 'Nome é requerido',
+                'name.alpha' => 'Nome válido é requerido',
+                'admin_mobile.required' => 'Celular é requerido',
+                'admin_mobile.numeric' => 'Celular válido é requerido'
+            ];
+            $this->validate($request, $rules, $customMessages);
+            Admin::where('email', Auth::guard('admin')->user()->email)
+                ->update(['name' => $data['name'], 'mobile' => $data['admin_mobile']]);
+            Session::flash('success_message', 'Detalhes do Admin foi atualizado com sucesso.');
+            return redirect()->back();
+        }
+        return view('admin.update_admin_details');
+    }
+
 }

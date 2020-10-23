@@ -1,11 +1,11 @@
 $(document).ready(function () {
-    $("#passwordCurrent").keyup(function () {
-        var passwordCurrent = $("passwordCurrent").val();
-        alert(passwordCurrent);
+    $("#current_pwd").keyup(function () {
+        var current_pwd = $("#current_pwd").val();
+        // alert(passwordCurrent);
         $.ajax({
             type: 'post',
-            url: "/admin/check-current_pwd",
-            data: {passwordCurrent: passwordCurrent},
+            url: "/admin/check-current-pwd",
+            data: {current_pwd: current_pwd},
             success: function (resp) {
                 if (resp === "false") {
                     $("#chkCurrentPwd").html("<font color=red>Senha Atual está incorreta</font>");
